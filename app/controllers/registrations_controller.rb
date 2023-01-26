@@ -6,7 +6,8 @@ class RegistrationsController < ApplicationController
     def create
         @user = User.create(user_params)
         if @user.save
-            redirect_to root_path, notice: "Successfully signed up!"
+            session[:user_id] = @user.id
+            redirect_to root_path, notice: "Signed up successfully!"
         else
             render :new
         end

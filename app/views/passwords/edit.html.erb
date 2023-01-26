@@ -1,6 +1,6 @@
-<h1>Sign Up</h1>
+<h1>Edit Password</h1>
 
-<%= form_for @user, url: signup_path, data: { turbo: false } do |f| %>
+<%= form_for Current.user, url: edit_password_path, data: { turbo: false } do |f| %>
     <% if f.object.errors.any? %>
         <ul class="alert alert-danger">
             <% f.object.errors.full_messages.each do |message| %>
@@ -9,10 +9,6 @@
         </ul>
     <% end %>
 
-    <div class='mb-3'>
-        <%= f.label :email %>
-        <%= f.text_field :email, class:'form-control', placeholder: 'user@test.com' %>
-    </div>
     <div class='mb-3'>
         <%= f.label :password %>
         <%= f.password_field :password, class:'form-control', placeholder: 'password' %>
@@ -23,6 +19,6 @@
     </div>
 
     <div class="mb-3">
-        <%= f.submit 'Get Started', class: 'btn btn-primary' %>
+        <%= f.submit 'Update Password', class: 'btn btn-primary' %>
     </div>
 <% end %>
